@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <title>Bibaha</title>
+
+        <script type="text/javascript" src="cordova-2.6.0.js"></script>
+  	<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+       	<script type="text/javascript" src="jquery.creaseFont.min.js"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function(){
+	  $.creaseFont({
+                 content:'.container',
+                 unit:'%',
+                 defaultSize:120,
+                 maxSize:500,
+                 minSize:40,
+                 stepSize:10
+                 });
+	});
+	</script>
+
+        		<script src="jquery.mobile-1.3.1.min.js"></script>
+		<link rel="stylesheet" href="jquery.mobile-1.3.1.min.css" />
+
+        
+        <script type="text/javascript">
+jQuery(document).ready(function($) {
+     $.get('quotes.txt', function(data) {
+         var quotes = data.split("\@");
+         var idx = Math.floor(quotes.length * Math.random());
+         $('.quotes').html(quotes[idx]);
+     });
+ });
+</script>
+
+        <script type="text/javascript">
+jQuery(document).ready(function($) {
+     $.get('verse.txt', function(data) {
+         var verse = data.split("\@");
+         var idx = Math.floor(verse.length * Math.random());
+         $('.verse').html(verse[idx]);
+     });
+ });
+</script>
+
+	
+<style type="text/css">
+	.ui-page.ui-body-c {
+    background: url(images/grey.jpg);
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:cover;  
+    text-shadow: 0 1px 0 rgb(255, 255, 255);
+	font-size: large;
+	}
+	.container {
+	 margin: 4% 2% 0 6%;
+	}
+    .quotes {
+	color: #000000;
+	text-align: left;
+	vertical-align:middle;
+	letter-spacing: 0.1em;
+	display: table-cell;
+	line-height: 1.2em;
+    }
+	.quotes:first-letter{ 
+	font-size: 3em;
+	color: gray;
+	}
+	.quotes:first-line { 
+	line-height: 1.2em; 
+	}
+	.verse {
+	color: #000000;
+	text-align: left;
+	vertical-align:middle;
+	letter-spacing: 0.1em;
+	display: table-cell;
+	line-height: 1.2em;
+    }
+   	.verse:first-letter{ 
+	font-size: 3em;
+	color: gray;
+	}
+	.verse:first-line { 
+	line-height: 1.2em; 
+	}
+	.ui-li, .ui-li.ui-field-contain {
+	margin: 0 10% 0;
+	}
+	.ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li {
+	padding: 15% 5%;
+	display: block;
+	font-size: 120%;
+	}
+	.ui-navbar li .ui-btn .ui-btn-inner {
+	padding-top: .7em;
+	padding-bottom: 20%;
+}
+	.plus {
+	font-size: xx-large;
+	padding: 6% 2% 6% 15%;
+	}
+	.ui-body-c .ui-link {	
+	font-size: small;
+	text-decoration: none;
+	color: #000000;
+	}
+	.ui-body-c .ui-link:visited {
+	color: #000000;
+	}
+}
+</style>
+	
+	
+</head>
+<body>
+
+<!-- page -->
+<div data-role="page" id="page">
+
+	<!-- header-->
+	<div data-role="header" data-position="fixed" data-theme="d">
+		<div align="center"><h3>Text aus ...</h3></div>
+	</div>
+	<!-- /header -->
+
+	<!-- content -->
+	<div data-role="content">	
+	
+	    <div class="ui-grid-a" style="text-align:center">
+		    <div class="ui-block-a"><a href="#page2"><img src="images/buch-vw.jpg" width="70%" height="70%" /><br />Verborgene Worte</a></div>
+		    <div class="ui-block-b"><a href="#page3"><img src="images/buch-vg.jpg" width="70%" height="70%" /><br />Verse Gottes</a></div>
+	      </div>
+	
+	</div>
+
+	
+	<!-- /content -->
+
+	<!-- footer -->
+	<div data-role="footer" data-position="fixed" data-theme="d">
+		<h4>...</h4>
+	</div>
+	<!-- /footer -->
+</div>
+<!-- /page -->
+
+
+<!-- page2 -->
+<div data-role="page" id="page2">
+	<!-- panel -->
+	<div data-role="panel" id="mypanel">
+		<h4>Anpassen:</h4><br/>
+		
+				<span id="fontLarge" style="cursor:pointer" class="plus" data-role="button" data-inline="true">+ Schrift</span>
+				<span id="fontDefault" style="cursor:pointer" class="plus" data-role="button" data-inline="true">&#216; Zurück </span>
+				<span id="fontSmall" style="cursor:pointer" class="plus" data-role="button" data-inline="true"> - Schrift</span>
+	</div>
+	<!-- /panel -->
+	
+	<!-- header-->
+	<div data-role="header" data-theme="d">
+		<div align="center"><h4>Verborgene Worte</h4></div>
+	</div>
+	<!-- /header -->
+
+	<!-- content -->
+	<div data-role="content">	
+		<br/><div class="container"><div class="quotes"></div></div><br/>	
+	</div>
+	<!-- /content -->
+
+	<!-- footer -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#mypanel" data-icon="gear" data-iconpos="top"></a></li>
+			<li><a href="#page" data-icon="home" data-iconpos="top"></a></li>
+			<li><a href="javascript:location.reload()" data-transition="slidedown" data-icon="arrow-r" data-iconpos="top"></a></li>
+		</ul>
+	</div>
+	</div>
+	<!-- /footer -->
+</div>
+<!-- /page2 -->
+
+
+<!-- page3 -->
+<div data-role="page" id="page3">
+
+	<!-- header -->
+	<div data-role="header" data-position="fixed" data-theme="d">
+		<div align="center"><h4>Verse Gottes</h4></div>
+	</div>
+	<!-- /header -->
+	
+	<!-- Popup -->
+	<div data-role="popup" id="popupBasic">
+    	<p>Anpassung der Textausgabe aus technischen Gründen nur über "Verborgene Worte" möglich. Vielen Dank für dein Verständnis.</p>
+	</div>
+	<!-- /Popup -->
+
+	<!-- content -->
+	<div data-role="content">	
+		<br/><div class="container"><div class="verse"></div></div><br/>	
+	</div>
+	<!-- /content -->
+	
+	<!-- footer -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#popupBasic" data-rel="popup" data-inline="true" data-transition="pop" data-icon="gear" data-iconpos="top"></a></li>
+			<li><a href="#page" data-icon="home" data-iconpos="top"></a></li>
+			<li><a href="javascript:location.reload()" data-transition="slidedown" data-icon="arrow-r" data-iconpos="top"></a></li>
+		</ul>
+	</div>
+	</div>
+	<!-- /footer -->
+</div>
+<!-- /page3 -->
+
+
+
+<div data-role="page" id="page4">
+	<div data-role="header"  data-position="fixed" data-theme="d">
+		<div><h4>Test 3</h4></div>
+	</div>
+	<div data-role="content">	
+		
+    <div class="ui-grid-a">
+		    <div class="ui-block-a">
+      <a href="#page2"><img src="images/buttons-zitat.png" width="100px" height="80px" /><br />Zufälliges Wort</a></div>
+            
+		    <div class="ui-block-b"><a href="#page3"><img src="images/buttons-fav.png" width="100px" height="80px" /><br />Favoriten</a></div>
+            
+      <div class="ui-block-a"><a href="#page4"><img src="images/buttons-buch.png" width="100px" height="80px" /><br />Zum Blättern</a></div>
+      
+		    <div class="ui-block-b"><a href="#page5"><img src="images/buttons-info.png" width="100px" height="80px" /><br />Info</a></div>
+	      </div>
+    
+	</div>
+
+	<div data-role="footer"  data-position="fixed" data-theme="d">
+		<h4>Fußzeile</h4>
+	</div>
+</div>
+
+
+</body>
+</html>
